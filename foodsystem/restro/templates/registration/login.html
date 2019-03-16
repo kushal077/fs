@@ -1,0 +1,9 @@
+<a href="{% url 'logout' %}"> logout </a>
+<h1>welcome</h1>
+<h2>Login</h2>
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit" name="button">Login </button>
+</form>
+<a href="/restro/signup/">Sign-up</a>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap-theme.min.css" integrity="sha384-jzngWsPS6op3fgRCDTESqrEJwRKck+CILhJVO5VvaAZCq8JYf8HsR/HPpBOOPZfR" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
+
+
+    <title>food system</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-defaut navbar-fixed-top" style="color:grey">
+      <ul class="nav navbar-nav navbar-left">
+          <li><a class="navbar-brand" href="/"> RESTRO </a></li>
+          <li><a href="/admin-login/"> About </a></li>
+          <li><a href="/restro/login/"> Login  {{ user.username}} </a></li>
+          <li>  <a href="{% url 'logout' %}"> logout </a> </li>
+
+      </ul>
+      <ul class="navbar navbar-nav navbar-right">
+        <li><a class="navbar-brand" href="cart/"> CART: <b>({{cart_size}}) ITEMS </b></a></li>
+        <li> <a href="/cart/checkout">  </a></li>
+      </ul>
+      </nav>
+
+      <br>
+      <br>
+      <div class ="page-header" style="text-align:center">
+        <h2> retro's near you!</h2>
+        </div>
+
+        <div class="row">
+          {% for restro in object_list %}
+          <a href='{{  restro.id }}/menu'>
+          <div class="col-md-4 well" style="text-align:center">
+            <div  id="{{restro.name}}" > {{restro.name}} </div>
+            <br>
+            <p> {{restro.location_Address}}</p>
+            <br>
+            <img src= {{ restro.image_url }} , style="max-width:200px">
+            <br>
+            </div>
+          </a>
+            {% endfor %}
+
+
+
+
+  </body>
+</html>
