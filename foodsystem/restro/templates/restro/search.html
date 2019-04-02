@@ -1,0 +1,140 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style media="screen">
+    searchContainer {
+display: grid;
+grid-template-columns:1.5rem 4fr 1fr;
+width:300px;
+border: 1px solid #ccc;
+border-radius: 5px;
+overflow: hidden;
+}
+
+.searchContainer:focus-within i {
+display: none;
+}
+
+.searchContainer:focus-within .searchBox{
+grid-column:1/4;
+}
+
+.searchContainer:focus-within .searchBox::placeholder {
+color:transparent;
+}
+
+.searchIcon {
+padding: 0.5rem;
+grid-row:1;
+grid-column:1/2;
+z-index:2
+}
+
+.searchBox {
+border: 0;
+padding: 0.5rem;
+grid-column:2/4;
+grid-row:1;
+outline-color: green;
+}
+
+.searchButton {
+background: #538AC5;
+border: ;
+color: white;
+padding: 0.5rem;
+border-radius: 50;
+grid-column:4/5;
+grid-row:1;
+}
+.footer{
+    height:70px;
+    position: absolute;
+    width:1450px;
+    bottom: 0;
+    background-color:black;
+    color:  white;
+    text-align: center;
+
+  }
+
+    </style>
+
+    <title> GRABFOD </title>
+  </head>
+  <body>
+    <!-- header -->
+    <div class="container-fluid" >
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand"   href="/">EAT24 | GRABFOOD  | </a>
+        <div class="">
+          <ul class="navbar-nav mr-auto">
+            <img src={% static "restro/images/location.jpeg" %} style="width:35px;height:35px;" alt="">
+              <li class="nav-item active">
+                <a class="nav-link" href=""> location:  DELHI NCR <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="" hidden > ABOUT <span class="sr-only">(current)</span></a>
+              </li>
+          </ul>
+        </div>
+        <nav class="navbar navbar-dark bg-dark ">
+          <form class="form-inline">
+            <a href="search/" class="btn btn-outline-success my-2 my-sm-0" style="margin:10px;" role="button">Search for Restaurants</a>
+          </form>
+        </nav>
+        <a href="#" class="btn btn-outline-success my-2 my-sm-0" style="margin:10px;" role="button" >Log in</a>
+        <a href="#" class="btn btn-outline-success my-2 my-sm-0" style="margin:10px;" role="button">Create Account </a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a href="#"  class="btn btn-outline-success my-2 my-sm-0" style="margin:10px;">Cart</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+
+<!-- search -->
+<form  method="post" action="/search/" >
+  {% csrf_token %}
+  <div class="searchContainer" style="position:absolute;left:300px;margin:30px;">
+    <i class="fa fa-search searchIcon"></i>
+    <input class="searchBox" type="search" style="width:500px;" name="search" placeholder="Search For Restaurants ...">
+    <input type="submit"  value="Search" class="btn btn-success">
+  </div>
+
+
+</form>
+
+<div class="container" style="margin:50px;">
+  <p class="lead" > In The Spotlight</p>
+</div>
+<hr>
+{% if sr %}
+<div class="row">
+  {% for k in sr %}
+  <div class="col-sm-12">
+    <div class="card" style="width:500px;margin:50px;">
+      <img class="card-img-top" style="width:200px;" src="{{ k.image_url }}">
+      <div class="card-body">
+      <a href="#" class="btn btn-success"> {{ k.name }}  </a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+<!-- footer -->
+<div class="footer">
+  <h4>  &copy 2019 All Rights Reserved   </h4>
+  <a href="#">contact us  @www.foodgrab.com</a>
+</div>
+
+
+  </body>
+</html>

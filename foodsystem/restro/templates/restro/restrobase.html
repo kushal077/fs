@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GRABFOOD</title>
+  <style media="screen">
+      body{
+        width:1400px;
+      }
+
+      .footer{
+          height:70px;
+          bottom: 0;
+          background-color:black;
+          color:  white;
+          text-align: center;
+
+        }
+
+  </style>
+   </head>
+
+  <body>
+<!-- header -->
+<div class="container-fluid" >
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand"   href="">EAT24 | GRABFOOD  | </a>
+    <div class="">
+      <ul class="navbar-nav mr-auto">
+        <img src={% static "restro/images/location.jpeg" %} style="width:35px;height:35px;" alt="">
+          <li class="nav-item active">
+            <a class="nav-link" href=""> location:  DELHI NCR <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="" hidden > ABOUT <span class="sr-only">(current)</span></a>
+          </li>
+      </ul>
+    </div>
+    <nav class="navbar navbar-dark bg-dark ">
+      <form class="form-inline">
+        <a href="search/" class="btn btn-outline-success my-2 my-sm-0" style="margin:10px;" role="button">Search for Restaurants</a>
+      </form>
+    </nav>
+    <a href="#" class="btn btn-outline-success my-2 my-sm-0" style="margin:10px;" role="button" >Log in</a>
+    <a href="#" class="btn btn-outline-success my-2 my-sm-0" style="margin:10px;" role="button">Create Account </a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a href="#"  class="btn btn-outline-success my-2 my-sm-0" style="margin:10px;">Cart</a>
+        </li>
+    </ul>
+  </nav>
+</div>
+
+
+<!-- top image!  -->
+<div class="container-fluid">
+  <div class="jumbotron">
+    <img src={% static  "restro/images/main.jpg" %}  style="width:1300px; height: 800px;"  alt="">
+    <h1 class="display-1" style="text-align:center;" > EAT24  | GRABFOOD </h1>
+    <p class="lead"> "  Stay Hungry And GRABFOOD | EAT24  " </p>
+    <hr class="my-4">
+    <a href="restro/" role="button" class="btn btn-success" style="width:250px;" > Explore Food.  </a>
+  </div>
+</div>
+
+<div class="container-fluid">
+    <div class="jumbotron">
+      <div class="display-4">
+        Cuisines For You
+      </div>
+      <hr>
+      <p class="lead"> Pick your choice. </p>
+    </div>
+</div>
+
+<!-- cuisines -->
+<hr class="my-4">
+<div class="container-fluid" style="margin:100px;" >
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card" style="width:300px;">
+        <img class="card-img-top" src={% static "restro/images/cuisines/american.jpg" %}>
+        <div class="card-body">
+        <a href="acuisines/" class="btn btn-success" c="american" >American</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card" style="width:300px;">
+        <img class="card-img-top" src={% static "restro/images/cuisines/thai.jpg" %}>
+        <div class="card-body">
+        <a href="tcuisines/" class="btn btn-success">Thai</a>
+        </div>
+      </div>
+      </div>
+    <div class="col-sm-4">
+      <div class="card" style="width:300px;">
+        <img class="card-img-top" src={% static "restro/images/cuisines/mexican.jpg" %}>
+        <div class="card-body">
+        <a href="mcuisines/" class="btn btn-success">Mexican</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card" style="width:300px;">
+        <img class="card-img-top" style="height:200px;" src={% static "restro/images/cuisines/chinese.jpg" %}>
+        <div class="card-body">
+        <a href="ccuisines/" class="btn btn-success">Chinese</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card" style="width:300px;">
+        <img class="card-img-top" src={% static "restro/images/cuisines/indian.jpg" %}>
+        <div class="card-body">
+        <a href="icuisines/" class="btn btn-success">Indian</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card" style="width:300px;">
+        <img class="card-img-top" src={% static "restro/images/cuisines/desert.jpg" %}>
+        <div class="card-body">
+        <a href="dcuisines/" class="btn btn-success">Desert</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="my-2">
+
+<!-- footer -->
+<div class="footer">
+  <h4>  &copy 2019 All Rights Reserved   </h4>
+  <a href="#">contact us  @www.foodgrab.com</a>
+</div>
+
+
+
+  </body>
+</html>

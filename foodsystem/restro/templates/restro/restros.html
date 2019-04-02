@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GRABFOOD</title>
+  </head>
+  <style media="screen">
+  body{
+    width:1450px;
+  }
+
+  .footer{
+      height:70px;
+      position:relative;
+      width: 1450px;
+      bottom: 0;
+      background-color:black;
+      color:  white;
+      text-align: center;
+
+    }
+
+  </style>
+  <body>
+<!-- header -->
+    <div class="container-fluid" >
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand"   href="/">EAT24 | GRABFOOD  | </a>
+        <div class="">
+          <ul class="navbar-nav mr-auto">
+            <img src={% static "restro/images/location.jpeg" %} style="width:35px;height:35px;" alt="">
+              <li class="nav-item active">
+                <a class="nav-link" href=""> location:  DELHI NCR <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="" hidden > ABOUT <span class="sr-only">(current)</span></a>
+              </li>
+          </ul>
+        </div>
+        <nav class="navbar navbar-dark bg-dark ">
+          <form class="form-inline">
+            <a href="search/" class="btn btn-outline-success my-2 my-sm-0" style="margin:10px;" role="button">Search for Restaurants</a>
+          </form>
+        </nav>
+        <a href="#" class="btn btn-outline-success my-2 my-sm-0" style="margin:10px;" role="button" >Log in</a>
+        <a href="#" class="btn btn-outline-success my-2 my-sm-0" style="margin:10px;" role="button">Create Account </a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a href="#"  class="btn btn-outline-success my-2 my-sm-0" style="margin:10px;">Cart</a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+
+<div class="container-fluid">
+    <div  style="background-color:grey;color:white;" class="jumbotron">
+      <div class="display-4">
+        Restaurants Near You !
+      </div>
+      <hr>
+      <p class="lead">  <b> {{r_count}} </B>  Restaurant finds near you.  </p>
+    </div>
+</div>
+
+
+<!--  all restros -->
+<div class="container-fluid" style="margin:70px;" >
+  <div class="row">
+    {% for r in r %}
+    <div class="col-sm-4 well">
+      <div class="card" style="padding:10px;margin:10px;">
+        <img class="card-img-top" style="width:300px;height:200px;" src="{{ r.image_url }}">
+        <div class="card-body">
+        <a href="{{ r.id }}/menu" class="btn btn-success">{{ r.name }}</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- footer -->
+<div class="footer">
+  <h4>  &copy 2019 All Rights Reserved   </h4>
+  <a href="#">contact us  @www.foodgrab.com</a>
+</div>
+</body>

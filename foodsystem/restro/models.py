@@ -3,12 +3,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 
-#cuisines table
-class cuisines(models.Model):
-    cuisine=models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.cuisine
 
 #restaurant table
 class Restaurant(models.Model):
@@ -18,13 +12,25 @@ class Restaurant(models.Model):
     image_url= models.CharField(max_length=300,blank=False,null=True)
     REST_STATE_CLOSED = "Closed"
     REST_STATE_OPEN = "Open"
+    cuisine_choices=(
+                     ('American','american'),
+                     ('Thai','thai'),
+                     ('Mexican','mexican'),
+                     ('chinese','Chinese'),
+                     ('indian','indian'),
+                     ('Desert','Desert')
+                     )
+                    
+    
     
     REST_STATE_CHOICES = (
                           (REST_STATE_OPEN,REST_STATE_OPEN),
                           (REST_STATE_CLOSED,REST_STATE_CLOSED)
                           )
         
-    cuisines=models.ManyToManyField(cuisines)
+    cuisines1=models.CharField(max_length=10,choices=cuisine_choices)
+    cuisines2=models.CharField(max_length=10,blank=True,null=False,choices=cuisine_choices)
+
     status=models.CharField(max_length=50,choices=REST_STATE_CHOICES,default=REST_STATE_OPEN)
     approved = models.BooleanField(blank=False,default=False)
                           
